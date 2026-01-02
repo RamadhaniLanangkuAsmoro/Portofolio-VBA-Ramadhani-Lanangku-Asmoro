@@ -1,0 +1,24 @@
+Private Sub CommandButton1_Click()
+TOTALPENDAPATAN.Value = Val(PENDAPATANPENJUALAN.Value) + Val(PENDAPATANLAIN.Value)
+TOTALBIAYA.Value = Val(PEMBELIANSTOK.Value) + Val(GAJI.Value) + Val(BIAYALISTRIK.Value) + Val(BIAYASEWA.Value) + Val(BIAYALAIN.Value) + (BIAYAOPERASIONAL.Value)
+LABASEBELUMPAJAK.Value = Val(TOTALPENDAPATAN.Value) - Val(TOTALBIAYA.Value)
+PAJAK = Val(LABASEBELUMPAJAK.Value) * Val(TINGKATPAJAK.Value) / 100
+LABASETELAHPAJAK.Value = Val(LABASEBELUMPAJAK.Value) - Val(PAJAK)
+
+Sheets("sheet1").Range("g6") = TANGGAL.Value
+Sheets("sheet1").Range("h6") = BULAN.Value
+Sheets("sheet1").Range("i6") = TAHUN.Value
+Sheets("sheet1").Range("h8") = PENDAPATANPENJUALAN.Value
+Sheets("sheet1").Range("h9") = PENDAPATANLAIN.Value
+Sheets("sheet1").Range("i10") = TOTALPENDAPATAN.Value
+Sheets("sheet1").Range("h12") = PEMBELIANSTOK.Value
+Sheets("sheet1").Range("h13") = GAJI.Value
+Sheets("sheet1").Range("h14") = BIAYALISTRIK.Value
+Sheets("sheet1").Range("h15") = BIAYASEWA.Value
+Sheets("sheet1").Range("h16") = BIAYALAIN.Value
+Sheets("sheet1").Range("h17") = BIAYAOPERASIONAL.Value
+Sheets("sheet1").Range("i18") = TOTALBIAYA.Value
+Sheets("sheet1").Range("i19") = LABASEBELUMPAJAK.Value
+Sheets("sheet1").Range("i20") = LABASETELAHPAJAK.Value
+
+End Sub
