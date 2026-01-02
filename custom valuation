@@ -1,0 +1,11 @@
+Private Sub CommandButton1_Click()
+HASIL.Value = Val(HARGA.Value) * Val(ASURANSI.Value) * Val(ONGKIR.Value) * Val(KURS.Value)
+End Sub
+
+Private Sub CommandButton2_Click()
+HASIL.Value = Val(HARGA.Value) * Val(ASURANSI.Value) * Val(ONGKIR.Value) * Val(KURS.Value) * 0.075
+End Sub
+
+Private Sub UserForm_Click()
+
+End Sub
