@@ -1,0 +1,127 @@
+Private Sub ARTIMORSE_Click()
+Dim morseDict As Object
+    Set morseDict = CreateObject("Scripting.Dictionary")
+    
+    morseDict.Add ".-", "A"
+    morseDict.Add "-...", "B"
+    morseDict.Add "-.-.", "C"
+    morseDict.Add "-..", "D"
+    morseDict.Add ".", "E"
+    morseDict.Add "..-.", "F"
+    morseDict.Add "--.", "G"
+    morseDict.Add "....", "H"
+    morseDict.Add "..", "I"
+    morseDict.Add ".---", "J"
+    morseDict.Add "-.-", "K"
+    morseDict.Add ".-..", "L"
+    morseDict.Add "--", "M"
+    morseDict.Add "-.", "N"
+    morseDict.Add "---", "O"
+    morseDict.Add ".--.", "P"
+    morseDict.Add "--.-", "Q"
+    morseDict.Add ".-.", "R"
+    morseDict.Add "...", "S"
+    morseDict.Add "-", "T"
+    morseDict.Add "..-", "U"
+    morseDict.Add "...-", "V"
+    morseDict.Add ".--", "W"
+    morseDict.Add "-..-", "X"
+    morseDict.Add "-.--", "Y"
+    morseDict.Add "--..", "Z"
+    morseDict.Add ".----", "1"
+    morseDict.Add "..---", "2"
+    morseDict.Add "...--", "3"
+    morseDict.Add "....-", "4"
+    morseDict.Add ".....", "5"
+    morseDict.Add "-....", "6"
+    morseDict.Add "--...", "7"
+    morseDict.Add "---..", "8"
+    morseDict.Add "----.", "9"
+    morseDict.Add "-----", "0"
+    morseDict.Add "/", " "
+   
+    Dim morseText As String
+    Dim hasilLatin As String
+    Dim morseWords As Variant
+    Dim i As Integer
+    morseText = Trim(Me.MORSE.Value)
+    
+    
+    morseWords = Split(morseText, " ")
+    
+    
+    hasilLatin = ""
+    For i = LBound(morseWords) To UBound(morseWords)
+        If morseDict.Exists(morseWords(i)) Then
+            hasilLatin = hasilLatin & morseDict(morseWords(i))
+        End If
+    Next i
+    
+    MsgBox "TERJEMAHAN: " & vbNewLine & hasilLatin, vbInformation, "Konversi Latin"
+End Sub
+
+Private Sub MORSE_Change()
+
+End Sub
+
+Private Sub Terjemahkan_Click()
+  Dim morseDict As Object
+    Set morseDict = CreateObject("Scripting.Dictionary")
+    
+    morseDict.Add "A", ".-"
+    morseDict.Add "B", "-..."
+    morseDict.Add "C", "-.-."
+    morseDict.Add "D", "-.."
+    morseDict.Add "E", "."
+    morseDict.Add "F", "..-."
+    morseDict.Add "G", "--."
+    morseDict.Add "H", "...."
+    morseDict.Add "I", ".."
+    morseDict.Add "J", ".---"
+    morseDict.Add "K", "-.-"
+    morseDict.Add "L", ".-.."
+    morseDict.Add "M", "--"
+    morseDict.Add "N", "-."
+    morseDict.Add "O", "---"
+    morseDict.Add "P", ".--."
+    morseDict.Add "Q", "--.-"
+    morseDict.Add "R", ".-."
+    morseDict.Add "S", "..."
+    morseDict.Add "T", "-"
+    morseDict.Add "U", "..-"
+    morseDict.Add "V", "...-"
+    morseDict.Add "W", ".--"
+    morseDict.Add "X", "-..-"
+    morseDict.Add "Y", "-.--"
+    morseDict.Add "Z", "--.."
+    morseDict.Add "1", ".----"
+    morseDict.Add "2", "..---"
+    morseDict.Add "3", "...--"
+    morseDict.Add "4", "....-"
+    morseDict.Add "5", "....."
+    morseDict.Add "6", "-...."
+    morseDict.Add "7", "--..."
+    morseDict.Add "8", "---.."
+    morseDict.Add "9", "----."
+    morseDict.Add "0", "-----"
+    morseDict.Add " ", "/"
+  
+    Dim teks As String
+    Dim hasilMorse As String
+    Dim i As Integer
+    teks = UCase(Me.LATIN.Value)
+    
+    TERJEMAHAN = ""
+    For i = 1 To Len(teks)
+        Dim char As String
+        char = Mid(teks, i, 1)
+        If morseDict.Exists(char) Then
+            hasilMorse = hasilMorse & morseDict(char) & " "
+        End If
+    Next i
+    
+    
+    MsgBox "TERJEMAHAN: " & vbNewLine & hasilMorse, vbInformation, "Konversi Morse"
+End Sub
+
+
