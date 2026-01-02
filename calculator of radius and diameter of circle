@@ -1,0 +1,17 @@
+Sub HitungLingkaran()
+    Dim jariJari As Double
+    Dim diameter As Double
+    Dim luas As Double
+    
+    ' Mengambil input jari-jari '
+    jariJari = InputBox("Masukkan jari-jari lingkaran:")
+    
+    ' Menghitung diameter
+    diameter = 2 * jariJari
+    
+    ' Menghitung luas
+    luas = 3.14159 * jariJari * jariJari
+    
+    ' Menampilkan hasil
+    MsgBox "Diameter lingkaran: " & diameter & vbCrLf & "Luas lingkaran: " & luas
+End Sub
