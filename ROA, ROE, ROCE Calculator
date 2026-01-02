@@ -1,0 +1,35 @@
+Private Sub CommandButton2_Click()
+ROAROA.Value = Val(ROALABABERSIH.Value) / Val(ROATOTALASET.Value) * 100
+ROARASIO.Value = Val(ROALABABERSIH.Value) / Val(ROATOTALASET.Value)
+komponenekuitasroe = Val(ROESAHAMBIASA.Value) + Val(ROESAHAMPREFEREN.Value) + Val(ROEMODALKONTRIBUSI.Value) + Val(ROELABADITAHAN.Value)
+ROEROE = Val(ROELABABERSIH.Value) / komponenekuitasroe * 100
+ROERASIO = Val(ROELABABERSIH.Value) / komponenekuitasroe
+komponenmodaljangkapendekroce = Val(ROCETOTALASET.Value) - Val(ROCELIABILITASJANGKAPENDEK.Value)
+komponenmodaljangkapanjangroce = Val(ROCEEKUITAS.Value) + Val(ROCELIABILITASJANGKAPANJANG.Value)
+ROCEROCE.Value = Val(ROCELABAOPERASI.Value) / komponenmodaljangkapendekroce * 100
+ROCEROCE.Value = Val(ROCELABAOPERASI.Value) / komponenmodaljangkapanjangroce * 100
+
+
+End Sub
+
+Private Sub CommandButton3_Click()
+ROAROA.Value = Null
+ROALABABERSIH.Value = Null
+ROATOTALASET.Value = Null
+ROARASIO.Value = Null
+ROESAHAMBIASA.Value = Null
+ROESAHAMPREFEREN.Value = Null
+ROEMODALKONTRIBUSI.Value = Null
+ROELABADITAHAN.Value = Null
+ROEROE.Value = Null
+ROERASIO.Value = Null
+ROELABABERSIH.Value = Null
+ROCETOTALASET.Value = Null
+ROCELIABILITASJANGKAPENDEK.Value = Null
+ROCEEKUITAS.Value = Null
+ROCELIABILITASJANGKAPANJANG.Value = Null
+ROCEROCE.Value = Null
+ROCELABAOPERASI.Value = Null
+
+
+End Sub
