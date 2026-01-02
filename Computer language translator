@@ -1,0 +1,123 @@
+Private Sub CommandButton1_Click()
+Me.LATIN.Value = ""
+    Me.BINER.Value = ""
+    Me.ASCII.Value = ""
+    Me.HEXA.Value = ""
+End Sub
+
+Private Sub DARI_Click()
+ Dim teks As String
+    Dim hasilBiner As String, hasilAscii As String
+    Dim hasilHex As String
+    Dim i As Integer
+    
+    teks = Me.LATIN.Value
+    hasilBiner = ""
+    hasilAscii = ""
+    hasilHex = ""
+
+    For i = 1 To Len(teks)
+        Dim charCode As Integer
+        charCode = Asc(Mid(teks, i, 1))
+
+   
+        hasilBiner = hasilBiner & Right("00000000" & WorksheetFunction.Dec2Bin(charCode), 8) & " "
+
+        hasilAscii = hasilAscii & charCode & " "
+
+        hasilHex = hasilHex & WorksheetFunction.Dec2Hex(charCode) & " "
+    Next i
+
+    
+    Me.BINER.Value = Trim(hasilBiner)
+    Me.ASCII.Value = Trim(hasilAscii)
+    Me.HEXA.Value = Trim(hasilHex)
+    
+    
+End Sub
+
+
+    
+    
+
+Private Sub DARIASCII_Click()
+Dim asciiText As String, hasilLatin As String
+    Dim hasilBiner As String, hasilHex As String
+    Dim asciiWords As Variant, i As Integer
+
+  
+    asciiText = Trim(Me.ASCII.Value)
+    asciiWords = Split(asciiText, " ")
+
+   
+    hasilLatin = ""
+    hasilBiner = ""
+    hasilHex = ""
+
+    For i = LBound(asciiWords) To UBound(asciiWords)
+        Dim charCode As Integer
+        charCode = Val(asciiWords(i))
+        hasilLatin = hasilLatin & Chr(charCode)
+        hasilBiner = hasilBiner & Right("00000000" & WorksheetFunction.Dec2Bin(charCode), 8) & " "
+        hasilHex = hasilHex & WorksheetFunction.Dec2Hex(charCode) & " "
+    Next i
+
+    Me.LATIN.Value = hasilLatin
+    Me.BINER.Value = Trim(hasilBiner)
+    Me.HEXA.Value = Trim(hasilHex)
+End Sub
+
+Private Sub daribiner_Click()
+ Dim binerText As String, hasilLatin As String
+    Dim hasilAscii As String, hasilHex As String
+    Dim binerWords As Variant, i As Integer
+    
+ 
+    binerText = Trim(Me.BINER.Value)
+    binerWords = Split(binerText, " ")
+    
+    
+    hasilLatin = ""
+    hasilAscii = ""
+    hasilHex = ""
+
+    For i = LBound(binerWords) To UBound(binerWords)
+        Dim charCode As Integer
+        charCode = WorksheetFunction.Bin2Dec(binerWords(i))
+        hasilLatin = hasilLatin & Chr(charCode)
+        hasilAscii = hasilAscii & charCode & " "
+        hasilHex = hasilHex & WorksheetFunction.Dec2Hex(charCode) & " "
+    Next i
+
+    
+    Me.LATIN.Value = hasilLatin
+    Me.ASCII.Value = Trim(hasilAscii)
+    Me.HEXA.Value = Trim(hasilHex)
+End Sub
+
+Private Sub darihexa_Click()
+Dim hexText As String, hasilLatin As String
+    Dim hasilBiner As String, hasilAscii As String
+    Dim hexWords As Variant, i As Integer
+
+    hexText = Trim(Me.HEXA.Value)
+    hexWords = Split(hexText, " ")
+
+    
+    hasilLatin = ""
+    hasilBiner = ""
+    hasilAscii = ""
+
+    For i = LBound(hexWords) To UBound(hexWords)
+        Dim charCode As Integer
+        charCode = WorksheetFunction.Hex2Dec(hexWords(i))
+        hasilLatin = hasilLatin & Chr(charCode)
+        hasilBiner = hasilBiner & Right("00000000" & WorksheetFunction.Dec2Bin(charCode), 8) & " "
+        hasilAscii = hasilAscii & charCode & " "
+    Next i
+
+
+    Me.LATIN.Value = hasilLatin
+    Me.BINER.Value = Trim(hasilBiner)
+    Me.ASCII.Value = Trim(hasilAscii)
+End Sub
