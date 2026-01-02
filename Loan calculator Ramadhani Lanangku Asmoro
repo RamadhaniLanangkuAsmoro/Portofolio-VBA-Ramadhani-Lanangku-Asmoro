@@ -1,0 +1,29 @@
+Private Sub CommandButton1_Click()
+p = Val(JUMLAHPINJAMAN.Value)
+rb = Val(BUNGA.Value) / 100
+rt = Val(BUNGA.Value) / 100 / 12
+pt = Val(PERIODE.Value) * 12
+pb = Val(PERIODE.Value)
+
+
+KASUS1 = Me.COMBOXBUNGA.Value
+Select Case KASUS1
+
+Case "BULAN"
+HASIL.Value = (p * (rb * (1 + rb) ^ pb) / (((1 + rb) ^ pb) - 1))
+
+
+
+
+Case "TAHUN"
+HASIL.Value = (p * (rt * (1 + rt) ^ pt) / (((1 + rt) ^ pt) - 1))
+End Select
+
+
+
+
+End Sub
+
+Private Sub UserForm_Activate()
+COMBOXBUNGA.AddItem "BULAN"
+COMBOXBUNGA.AddItem "TAHUN"
