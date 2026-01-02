@@ -1,0 +1,32 @@
+Private Sub CommandButton1_Click()
+TOTALPENJUALAN.Value = Val(JUMLAHPRODUK.Value) * Val(HARGAJUALUNIT.Value)
+BIAYAVARIABELUNIT.Value = Val(VARIABLECOST.Value) / Val(JUMLAHPRODUK.Value)
+BIAYAVARIABELPENJUALAN.Value = Val(VARIABLECOST.Value): Val (TOTALPENJUALAN.Value)
+KOMPONENUNIT = Val(HARGAJUALUNIT.Value) - Val(BIAYAVARIABELUNIT.Value)
+BEPDALAMUNIT.Value = Val(FIXEDCOST.Value) / KOMPONENUNIT
+KOMPONENRUPIAH = 1 - Val(BIAYAVARIABELPENJUALAN.Value)
+BEPDALAMRUPIAH.Value = Val(FIXEDCOST.Value) - KOMPONENDALAMRUPIAH
+
+PENJUALAN.Value = Val(BEPDALAMUNIT.Value) * Val(HARGAJUALUNIT.Value)
+BIAYAVARIABEL.Value = Val(BEPDALAMUNIT.Value) * Val(BIAYAVARIABELUNIT.Value)
+MARGINKONTRIBUSI.Value = Val(PENJUALAN.Value) - Val(BIAYAVARIABEL.Value)
+BIAYATETAP.Value = Val(FIXEDCOST.Value)
+LABA.Value = Val(MARGINKONTRIBUSI.Value) - Val(BIAYATETAP.Value)
+
+Sheets("sheet1").Range("i5") = JUMLAHPRODUK.Value
+Sheets("sheet1").Range("i6") = HARGAJUALUNIT.Value
+Sheets("sheet1").Range("i7") = FIXEDCOST.Value
+Sheets("sheet1").Range("i8") = VARIABLECOST.Value
+Sheets("sheet1").Range("i9") = TOTALPENJUALAN.Value
+Sheets("sheet1").Range("i10") = BIAYAVARIABELUNIT.Value
+Sheets("sheet1").Range("i11") = BIAYAVARIABELPENJUALAN.Value
+Sheets("sheet1").Range("i12") = BEPDALAMUNIT.Value
+Sheets("sheet1").Range("i13") = BEPDALAMRUPIAH.Value
+Sheets("sheet1").Range("i16") = PENJUALAN.Value
+Sheets("sheet1").Range("i17") = BIAYAVARIABEL.Value
+Sheets("sheet1").Range("i18") = MARGINKONTRIBUSI.Value
+Sheets("sheet1").Range("i19") = BIAYATETAP.Value
+Sheets("sheet1").Range("i20") = LABA.Value
+
+
+End Sub
