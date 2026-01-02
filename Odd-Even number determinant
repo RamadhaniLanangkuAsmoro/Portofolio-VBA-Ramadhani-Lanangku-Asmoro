@@ -1,0 +1,13 @@
+Sub CekGanjilGenap()
+    Dim bilangan As Integer
+    
+    ' Meminta pengguna memasukkan bilangan
+    bilangan = InputBox("Masukkan bilangan:")
+    
+    ' Memeriksa apakah bilangan genap atau ganjil
+    If bilangan Mod 2 = 0 Then
+        MsgBox bilangan & " adalah bilangan genap."
+    Else
+        MsgBox bilangan & " adalah bilangan ganjil."
+    End If
+End Sub
